@@ -64,7 +64,7 @@ class KintoneCodeEditor {
 
     // Load scripts
     await loadScript('https://unpkg.com/vue@3/dist/vue.global.js');
-    await loadScript('https://unpkg.com/primevue/umd/primevue.min.js');
+    await loadScript('https://unpkg.com/primevue@3/core/core.min.js');
     const componentScripts = [
     'https://unpkg.com/primevue@3/tree/tree.min.js',
     'https://unpkg.com/primevue@3/button/button.min.js',
@@ -777,6 +777,7 @@ class KintoneCodeEditor {
     });
 
     // PrimeVue設定
+    const PrimeVue = primevue;
     this.app.use(PrimeVue.Config, { ripple: true });
     this.app.use(PrimeVue.ToastService);
     
