@@ -64,7 +64,7 @@ class KintoneCodeEditor {
 
     // Load scripts
     await loadScript('https://unpkg.com/vue@3/dist/vue.global.js');
-    await loadScript('https://unpkg.com/primevue@3/core/core.min.js');
+    await loadScript('https://unpkg.com/primevue/umd/primevue.min.js');
     const componentScripts = [
     'https://unpkg.com/primevue@3/tree/tree.min.js',
     'https://unpkg.com/primevue@3/button/button.min.js',
