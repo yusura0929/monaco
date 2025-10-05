@@ -423,8 +423,10 @@ class KintoneCodeEditor {
       },
       
       mounted() {
-        this.initEditor();
-        this.loadRecords();
+        this.$nextTick(() => {
+          this.initEditor();
+          this.loadRecords();
+        })
       },
       
       methods: {
