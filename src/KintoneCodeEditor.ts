@@ -65,18 +65,24 @@ class KintoneCodeEditor {
     // Load scripts
     await loadScript('https://unpkg.com/vue@3/dist/vue.global.js');
     await loadScript('https://unpkg.com/primevue@3/core/core.min.js');
-    await loadScript('https://unpkg.com/primevue@3/tree/tree.min.js');
-    await loadScript('https://unpkg.com/primevue@3/button/button.min.js');
-    await loadScript('https://unpkg.com/primevue@3/dialog/dialog.min.js');
-    await loadScript('https://unpkg.com/primevue@3/inputtext/inputtext.min.js');
-    await loadScript('https://unpkg.com/primevue@3/dropdown/dropdown.min.js');
-    await loadScript('https://unpkg.com/primevue@3/contextmenu/contextmenu.min.js');
-    await loadScript('https://unpkg.com/primevue@3/toast/toast.min.js');
-    await loadScript('https://unpkg.com/primevue@3/toastservice/toastservice.min.js');
-    await loadScript('https://unpkg.com/primevue@3/splitter/splitter.min.js');
-    await loadScript('https://unpkg.com/primevue@3/splitterpanel/splitterpanel.min.js');
-    await loadScript('https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js');
-    await loadScript('https://unpkg.com/esbuild-wasm@0.19.11/lib/browser.min.js');
+    const componentScripts = [
+    'https://unpkg.com/primevue@3/tree/tree.min.js',
+    'https://unpkg.com/primevue@3/button/button.min.js',
+    'https://unpkg.com/primevue@3/dialog/dialog.min.js',
+    'https://unpkg.com/primevue@3/inputtext/inputtext.min.js',
+    'https://unpkg.com/primevue@3/dropdown/dropdown.min.js',
+    'https://unpkg.com/primevue@3/contextmenu/contextmenu.min.js',
+    'https://unpkg.com/primevue@3/toast/toast.min.js',
+    'https://unpkg.com/primevue@3/toastservice/toastservice.min.js',
+    'https://unpkg.com/primevue@3/splitter/splitter.min.js',
+    'https://unpkg.com/primevue@3/splitterpanel/splitterpanel.min.js'
+  ];
+
+  await Promise.all(componentScripts.map(loadScript));
+
+  // Monaco と esbuild はそのまま順番通り
+  await loadScript('https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js');
+  await loadScript('https://unpkg.com/esbuild-wasm@0.19.11/lib/browser.min.js');
   }
 
   private createContainer() {
