@@ -1,3 +1,5 @@
 import KintoneCodeEditor from './KintoneCodeEditor.ts';
 
-const editor = new KintoneCodeEditor();
+kintone.events.on('app.record.index.show', (event) => {
+  const editor = new KintoneCodeEditor();
+});
