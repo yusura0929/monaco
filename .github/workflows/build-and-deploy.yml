@@ -1,9 +1,14 @@
 name: Build and deploy dist to gh-pages
 
+# 必要ならトリガーを保持
 on:
   push:
     branches:
-      - main   # mainブランチにpushしたときだけ動く
+      - main
+
+# 明示的に GITHUB_TOKEN に書き込み権限を付与
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -14,6 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true  # 明示しておく
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -21,15 +27,15 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci || npm install
 
-      - name: Build project
+      - name: Build
         run: npm run build
 
-      - name: Deploy to gh-pages branch
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          destination_branch: gh-pages
+          publish_branch: gh-pages   # ← 修正点（destination_branch の代わり）
           keep_files: false
