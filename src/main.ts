@@ -1,3 +1,3 @@
-import KintoneCodeEditor from './KintoneCodeEditor';
+import KintoneCodeEditor from './KintoneCodeEditor.ts';
 
 const editor = new KintoneCodeEditor();
