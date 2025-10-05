@@ -36,6 +36,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./
           publish_branch: gh-pages   # ← 修正点（destination_branch の代わり）
           keep_files: false
