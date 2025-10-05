@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/kintone-customize.js"],
+  "sourcesContent": ["alert('test')"],
+  "mappings": "MAAA,MAAM,MAAM",
+  "names": []
+}
