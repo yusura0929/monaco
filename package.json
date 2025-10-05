@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "scripts": {
-    "build": "esbuild src/kintone-customize.js --bundle --minify --sourcemap --outfile=dist/kintone-customize.js"
+    "build": "esbuild src/main.js --bundle --minify --sourcemap --outfile=dist/kintone-customize.js"
   },
   "devDependencies": {
     "esbuild": "^0.19.0"
